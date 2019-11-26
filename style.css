@@ -33,11 +33,20 @@ body {
 }
 
 #controls > div {
-    width: 20%;
+    width: 25%;
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+#brush button, #brightness button, #fileUpload button {
+  background-color: #fff;
+  color: black;
+  border: none;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  font-family: 'Alatsi', sans-serif;
 }
 
 .colors button {
