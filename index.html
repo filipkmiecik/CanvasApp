@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CanvasPainting</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
+    <script src="brush.js"></script>
+    <script src="draw.js"></script>
+    <script src="canvas.js"></script>
+</head>
+<body>
+    <div id="canvasPaint"></div>
+    <div id="controls">
+        <div class="colors">
+            <button type="button" value="#ff0000"></button>
+            <button type="button" value="#fff200"></button>
+            <button type="button" value="#000000"></button>
+            <button type="button" value="#d900ff"></button>
+            <button type="button" value="#00ff11"></button>
+            <button type="button" value="#999999"></button>
+        </div>
+        <div id="brush">
+        <p>Shape</p>        
+          <button id="square">Square</button>
+          <button id="circle">Circle</button>
+          <button id="triangle">Triangle</button>             
+        </div>
+        <div id="contrast">
+            <p>Contrast</p>
+        </div>
+        <div id="brightness">
+            <p>Brightness</p>
+            <button id="brightIncrease">Increase</button>
+            <button id="brightDecrease">Decrease</button>
+        </div>
+        <div id="saturation">
+            <p>Saturation</p>
+            <button id="saturate">Saturate</button>
+        </div>
+        <div>
+        <input type="file" id="userImage" accept="image/*" />
+        </div>
+    </div>
+</body>
+</html>
