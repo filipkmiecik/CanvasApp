@@ -7,35 +7,42 @@
     <title>CanvasPainting</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet">
-    <script src="brush.js"></script>
-    <script src="draw.js"></script>
     <script src="canvas.js"></script>
 </head>
 <body>
-    <div id="canvasPaint"></div>
+    <div id="canvasSpace">
+    <canvas id="canvasPaint" width="800" height="600"></canvas>
+    </div>
+    <div id="controlsContainer">
     <div id="controls">
         <div class="colors">
             <button type="button" value="#ff0000"></button>
-            <button type="button" value="#fff200"></button>
-            <button type="button" value="#000000"></button>
-            <button type="button" value="#d900ff"></button>
-            <button type="button" value="#00ff11"></button>
-            <button type="button" value="#999999"></button>
+            <button type="button" value="#ff7700"></button>
+            <button type="button" value="#ffea00"></button>
+            <button type="button" value="#00ff00"></button>
+            <button type="button" value="#00eaff"></button>
+            <button type="button" value="#004cff"></button>
+            <button type="button" value="#8c00ff"></button>
+            <button type="button" value="#000000"></button>           
         </div>
         <div id="brush">
         <p>Shape</p>        
           <button id="square">Square</button>
-          <button id="circle">Circle</button>
-          <button id="triangle">Triangle</button>             
+          <button id="triangle">Triangle</button>         
         </div>
         <div id="brightness">
             <p>Brightness</p>
-            <button id="brightIncrease">Increase</button>
-            <button id="brightDecrease">Decrease</button>
+            <button id="brightIncrease">+</button>
+            <button id="brightDecrease">-</button>
         </div>
         <div id="fileUpload">
         <input type="file" id="userImage" accept="image/*" />
-        </div>
+            </div>
+        <div id="options">
+    <button id="clear">Clear</button>
+    <button id="save">Save</button>
+    </div>
+    </div>
     </div>
 </body>
 </html>

@@ -8,11 +8,17 @@ body {
     color: white;
 }
 
+#controlsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #canvasSpace {
     background: #fff;
     width: 80vw;
     height: 80vh;
-    margin: 3rem auto 0 auto;
+    margin: 2rem auto 0 auto;
 }
 
 #canvasPaint {
@@ -20,27 +26,26 @@ body {
     height: 80vh;
     cursor: crosshair;
     background: #fff;
-    position: relative;
-    margin: 3rem auto 0 auto;
 }
 
 #controls {
     height: 10vh;
-    width: 70vw;
+    width: 78vw;
     background: #444545;
-    margin: 3rem auto 0 auto;
+    margin: 1rem 1rem 0 0;
     display: flex;
+    justify-content: center;
 }
 
 #controls > div {
-    width: 25%;
+    width: 20%;
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-#brush button, #brightness button, #fileUpload button {
+#brush button, #brightness button, #fileUpload button, #options button {
   background-color: #fff;
   color: black;
   border: none;
@@ -52,10 +57,8 @@ body {
 .colors button {
   display: inline-block;
   border: 1px solid #00000026;
-  border-radius: 0;
-  outline: none;
   cursor: pointer;
-  width: 33.3%;
+  width: 25%;
   height: 50%;
 }
 
@@ -64,44 +67,32 @@ body {
 }
 
 .colors button:nth-of-type(2) {
-  background-color: #fff200;
+  background-color: #ff7700;
 }
 
 .colors button:nth-of-type(3) {
-  background-color: #000000;
+  background-color: #ffea00;
 }
 
 .colors button:nth-of-type(4) {
-  background-color: #d900ff;
+  background-color: #00ff00;
 }
 
 .colors button:nth-of-type(5) {
-  background-color: #00ff11;
+  background-color: #00eaff;
 }
 
 .colors button:nth-of-type(6) {
-  background-color: #999999;
+  background-color: #004cff;
 }
-
+.colors button:nth-of-type(7) {
+  background-color: #8c00ff;
+}
+.colors button:nth-of-type(8) {
+  background-color: #000000;
+}
 #userImage {
   max-width:100%;
   max-height:100%;
 }
 
-.brush {
-    width: 10px;
-    height: 10px;
-    background-color: black;
-    position: absolute;
-}
-.circle-brush {
-    border-radius: 50%;
-}
-.triangle-brush{
-width: 0;
-height: 0;
-border-style: solid;
-border-width: 0 5px 10px 5px;
-border-color: transparent transparent #000000 transparent;
-position: absolute;
-}
