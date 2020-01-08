@@ -98,6 +98,10 @@ document
 document
 .querySelector('#brightDecrease')
 .addEventListener('click', () => decreaseBrightness())
+  
+document
+.querySelector('#invertColor')
+.addEventListener('click', () => invertColor())
 
 function decreaseBrightness(amount = 15) {
   const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
@@ -117,4 +121,15 @@ function increaseBrightness (amount = 15) {
     canvasData.data[i + 2] += amount
   }
   context.putImageData(canvasData, 0, 0)
+  }
+function invertColor () {
+  const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
+  for (var i = 0; i < canvasData.data.length; i++) {
+    canvasData.data[i*4] = 255-canvasData.data[i*4]
+    canvasData.data[i*4+1] = 255-canvasData.data[i*4+1]
+    canvasData.data[i*4+2] = 255-canvasData.data[i*4+2]
+  }
+  context.putImageData(canvasData, 0, 0)
 }}
+
+
