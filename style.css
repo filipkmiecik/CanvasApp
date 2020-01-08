@@ -45,7 +45,7 @@ body {
     align-items: center;
 }
 
-#brush button, #brightness button, #fileUpload button, #options button {
+button {
   background-color: #fff;
   color: black;
   border: none;
@@ -58,6 +58,8 @@ body {
   display: inline-block;
   border: 1px solid #00000026;
   cursor: pointer;
+  padding: 0rem;
+  margin-left: 0rem;
   width: 25%;
   height: 50%;
 }
