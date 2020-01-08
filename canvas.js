@@ -72,13 +72,7 @@ function appStart() {
 
   const saveButton = document.getElementById('save');
 
-  saveButton.addEventListener('click', function () {
-    const canvasDataURL = canvas.toDataURL()
-    const a = document.createElement('a')
-    a.href = canvasDataURL
-    a.download = 'drawing'
-    a.click()
-  })
+  saveButton.addEventListener('click', () => new Save('canvasPaint'))
 
   document.getElementById('userImage').onchange = function (e) {
     const img = new Image()
