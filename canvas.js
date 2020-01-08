@@ -146,9 +146,13 @@ function appStart() {
 
   function grayscale() {
     const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    for (var i = 0; i < canvasData.data.length; i++) {
-    let gray = 0.2126*canvasData.data[i] + 0.7152*canvasData.data[i+1] + 0.0722*canvasData.data[i+2];
-    canvasData.data[i] = canvasData.data[i+1] = canvasData.data[i+2] = gray
+    for (var i = 0; i < canvasData.data.length; i += 4) {
+	  
+      let lightness = parseInt((canvasData.data[i] + canvasData.data[i + 1] + canvasData.data[i + 2]) / 3);
+    
+      canvasData.data[i] = lightness;
+      canvasData.data[i + 1] = lightness;
+      canvasData.data[i + 2] = lightness;
     }
     context.putImageData(canvasData, 0, 0)
   }
@@ -176,6 +180,4 @@ function appStart() {
     }
     context.putImageData(canvasData, 0, 0)
   }
-
-
 }

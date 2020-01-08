@@ -37,12 +37,20 @@ body {
     justify-content: center;
 }
 
-#controls > div {
-    width: 20%;
+#controls div {
+    width: 14%;
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+#controls #filters {
+    width: 44%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;  
 }
 
 button {
