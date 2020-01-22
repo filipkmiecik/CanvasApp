@@ -19,15 +19,11 @@ function appStart() {
     .querySelector('#square')
     .addEventListener('click', () => strokeShape = 'square')
 
-  clear.addEventListener('click', function () {
-    context.clearRect(0, 0, canvas.width, canvas.height)
-  })
-
   function setMouseCoordinates(event) {
     let bounds = canvas.getBoundingClientRect()
     let scaleX = canvas.width / bounds.width
     let scaleY = canvas.height / bounds.height
-  
+
     mouseX = (event.clientX - bounds.left) * scaleX
     mouseY = (event.clientY - bounds.top) * scaleY
   }
@@ -60,7 +56,7 @@ function appStart() {
           context.fill()
           break
         }
-          
+
       }
     }
   })
@@ -73,6 +69,8 @@ function appStart() {
   const saveButton = document.getElementById('save');
 
   saveButton.addEventListener('click', () => new Save('canvasPaint'))
+
+  clear.addEventListener('click', () => new Clear('canvasPaint'))
 
   document.getElementById('userImage').onchange = function (e) {
     const img = new Image()
@@ -88,11 +86,11 @@ function appStart() {
   document
     .querySelector('#brightIncrease')
     .addEventListener('click', () => increaseBrightness())
-    
+
   document
     .querySelector('#brightDecrease')
     .addEventListener('click', () => decreaseBrightness())
-  
+
   document
     .querySelector('#invertColor')
     .addEventListener('click', () => invertColor())
@@ -100,11 +98,11 @@ function appStart() {
   document
     .querySelector('#contrastIncrease')
     .addEventListener('click', () => increaseContrast())
-  
+
   document
     .querySelector('#contrastDecrease')
     .addEventListener('click', () => decreaseContrast())
-  
+
   document
     .querySelector('#grayscale')
     .addEventListener('click', () => grayscale())
@@ -141,9 +139,9 @@ function appStart() {
   function grayscale() {
     const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
     for (var i = 0; i < canvasData.data.length; i += 4) {
-	  
+
       let lightness = parseInt((canvasData.data[i] + canvasData.data[i + 1] + canvasData.data[i + 2]) / 3);
-    
+
       canvasData.data[i] = lightness;
       canvasData.data[i + 1] = lightness;
       canvasData.data[i + 2] = lightness;
