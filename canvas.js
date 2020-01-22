@@ -18,6 +18,10 @@ function appStart() {
   document
     .querySelector('#square')
     .addEventListener('click', () => strokeShape = 'square')
+  
+  document
+    .querySelector('#filters')
+    .addEventListener('click', (e) => new Filter('canvasPaint', e).pickFilter());
 
   function setMouseCoordinates(event) {
     let bounds = canvas.getBoundingClientRect()
@@ -81,95 +85,5 @@ function appStart() {
     canvas.width = this.width
     canvas.height = this.height
     context.drawImage(this, 0, 0);
-  }
-
-  document
-    .querySelector('#brightIncrease')
-    .addEventListener('click', () => increaseBrightness())
-
-  document
-    .querySelector('#brightDecrease')
-    .addEventListener('click', () => decreaseBrightness())
-
-  document
-    .querySelector('#invertColor')
-    .addEventListener('click', () => invertColor())
-
-  document
-    .querySelector('#contrastIncrease')
-    .addEventListener('click', () => increaseContrast())
-
-  document
-    .querySelector('#contrastDecrease')
-    .addEventListener('click', () => decreaseContrast())
-
-  document
-    .querySelector('#grayscale')
-    .addEventListener('click', () => grayscale())
-
-  function decreaseBrightness(amount = 15) {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    for (let i = 0; i < canvasData.data.length; i += 4) {
-      canvasData.data[i] -= amount
-      canvasData.data[i + 1] -= amount
-      canvasData.data[i + 2] -= amount
-    }
-    context.putImageData(canvasData, 0, 0)
-  }
-
-  function increaseBrightness(amount = 15) {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    for (let i = 0; i < canvasData.data.length; i += 4) {
-      canvasData.data[i] += amount
-      canvasData.data[i + 1] += amount
-      canvasData.data[i + 2] += amount
-    }
-    context.putImageData(canvasData, 0, 0)
-  }
-  function invertColor() {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    for (var i = 0; i < canvasData.data.length; i++) {
-      canvasData.data[i * 4] = 255 - canvasData.data[i * 4]
-      canvasData.data[i * 4 + 1] = 255 - canvasData.data[i * 4 + 1]
-      canvasData.data[i * 4 + 2] = 255 - canvasData.data[i * 4 + 2]
-    }
-    context.putImageData(canvasData, 0, 0)
-  }
-
-  function grayscale() {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    for (var i = 0; i < canvasData.data.length; i += 4) {
-
-      let lightness = parseInt((canvasData.data[i] + canvasData.data[i + 1] + canvasData.data[i + 2]) / 3);
-
-      canvasData.data[i] = lightness;
-      canvasData.data[i + 1] = lightness;
-      canvasData.data[i + 2] = lightness;
-    }
-    context.putImageData(canvasData, 0, 0)
-  }
-
-  function increaseContrast() {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    const amount = 5
-    const factor = (259 * (amount + 255)) / (255 * (259 - amount));
-    for (let i = 0; i < canvasData.data.length; i += 4) {
-      canvasData.data[i] = factor * (canvasData.data[i] - 128) + 128
-      canvasData.data[i + 1] = factor * (canvasData.data[i + 1] - 128) + 128
-      canvasData.data[i + 2] = factor * (canvasData.data[i + 2] - 128) + 128
-    }
-    context.putImageData(canvasData, 0, 0)
-  }
-
-  function decreaseContrast() {
-    const canvasData = context.getImageData(0, 0, canvas.width, canvas.height)
-    const amount = -5
-    const factor = (259 * (amount + 255)) / (255 * (259 - amount));
-    for (let i = 0; i < canvasData.data.length; i += 4) {
-      canvasData.data[i] = factor * (canvasData.data[i] - 128) + 128
-      canvasData.data[i + 1] = factor * (canvasData.data[i + 1] - 128) + 128
-      canvasData.data[i + 2] = factor * (canvasData.data[i + 2] - 128) + 128
-    }
-    context.putImageData(canvasData, 0, 0)
   }
 }
